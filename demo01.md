@@ -27,10 +27,11 @@
 
     ```xml
     <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.glassfish.web/jstl-impl -->
     <dependency>
-        <groupId>javax.servlet.jsp.jstl</groupId>
-        <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-        <version>1.2.2</version>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>jstl-impl</artifactId>
+        <version>1.2</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
