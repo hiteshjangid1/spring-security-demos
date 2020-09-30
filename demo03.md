@@ -25,6 +25,12 @@
         <artifactId>spring-security-config</artifactId>
         <version>3.2.10.RELEASE</version>
     </dependency>
+
+    <dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+	</dependency>
     ```
 
 3.  Modify `web.xml` for security configuration.
@@ -99,3 +105,6 @@
 
     Username:   mahendra
     Password:   password@1234
+
+
+> The completed code can be found at [project](./MyApp4)
