@@ -8,7 +8,7 @@
 		<security:intercept-url pattern="/loans" access="ROLE_USER"  />
 		<security:logout invalidate-session="true"  logout-url="/logout" />
 		<security:form-login  />
-	
+
 	</security:http>    
     ```
 
