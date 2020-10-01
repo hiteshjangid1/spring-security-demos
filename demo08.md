@@ -63,6 +63,7 @@ Pre-Requisite
     </head>
     <body>
     <h1>Hello World</h1>
+    <a href="contactus">Contact Us</a>
     </body>
     </html>
     ```
@@ -80,3 +81,61 @@ Pre-Requisite
     Right click > Run As > Run As Java Application
 
 9.  Open your web browser to access http://localhost:8080
+
+10. Create new Java Class `SecurityConfig` in base-package `com.mahendra.demo8`
+
+    ```java
+    @Configuration
+    @EnableWebSecurity
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+    public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.antMatcher("/**").authorizeRequests().antMatchers("/").permitAll()
+            .anyRequest().authenticated().and().formLogin();
+        }
+        
+    }
+    ```
+
+11. Open the HomeController class and replace the old code with new one:
+
+    ```java
+    @Controller
+    @RequestMapping("/")
+    public class HomeController {
+
+        @PreAuthorize("permitAll")
+        @GetMapping
+        public String home() {
+            return "home";
+        }
+        
+        //Must Authenticate Yourself 
+        @GetMapping("/contactus")
+        public String contactus() {
+            return "contactus";
+        }
+    }
+    ```
+12. Create `contactus.html` in `src/main/resources/templates/`
+
+    ```html
+    <!DOCTYPE html>
+    <html xmlns="https://www.thymeleaf.org">
+    <head>
+    <meta charset="ISO-8859-1">
+    <title>Contact Us</title>
+    </head>
+    <body>
+    <h2>Contact Information</h2>
+    </body>
+    </html>
+    ```
+
+13. Stop the running instances (If any) from "console" panel
+
+14. Right click on Demo8Application.java > Run As > Java Application
+
+15. Open web-browser and visit `http://localhost:8080`
